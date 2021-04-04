@@ -16,7 +16,6 @@ class CreateControladoresTable extends Migration
         Schema::create('controladores', function (Blueprint $table) {
             $table->id();
             $table->text('nombre');
-            $table->integer('estado_id')->default(1);
             $table->timestamps();
         });
     }

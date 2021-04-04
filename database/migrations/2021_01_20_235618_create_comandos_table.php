@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCrucesTable extends Migration
+class CreateComandosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateCrucesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cruces', function (Blueprint $table) {
+        Schema::create('comandos', function (Blueprint $table) {
             $table->id();
-            $table->text('interseccion');
-            $table->integer('municipio_id');
+            $table->text('comando');
+            $table->integer('largo');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateCrucesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cruces');
+        Schema::dropIfExists('comandos');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCrucesTable extends Migration
+class CreateControladorCruceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateCrucesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cruces', function (Blueprint $table) {
-            $table->id();
-            $table->text('interseccion');
-            $table->integer('municipio_id');
-            $table->timestamps();
+        Schema::create('controlador_cruce', function (Blueprint $table) {
+            $table->integer('controlador_id');
+            $table->integer('cruce_id');
+            $table->integer('estado_id')->default(1);
         });
     }
 
@@ -28,6 +27,6 @@ class CreateCrucesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cruces');
+        Schema::dropIfExists('controlador_cruce');
     }
 }

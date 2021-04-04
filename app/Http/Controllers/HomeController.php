@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cruce;
+use App\Models\Municipio;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $municipios = Municipio::all();
+//        ddd($cruces);
+        return view('home')
+            ->with('municipios', $municipios);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLorasTable extends Migration
+class CreateEtapasBrutoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateLorasTable extends Migration
      */
     public function up()
     {
-        Schema::create('loras', function (Blueprint $table) {
+        Schema::create('etapas_bruto', function (Blueprint $table) {
             $table->id();
-            $table->text('modelo');
-            $table->integer('frecuencia');
-            $table->integer('direccion');
-            $table->integer('velocidad_datos_aire');
-            $table->integer('velocidad_baudios');
-            $table->char('pariedad');
+            $table->text('informacion');
+            $table->integer('cruce_id');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateLorasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loras');
+        Schema::dropIfExists('etapas_bruto');
     }
 }

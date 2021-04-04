@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CruceController;
+use App\Http\Controllers\MunicipioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +21,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middlware' => ['auth']], function () {
+    Route::get('cruce/{id}', [CruceController::class, 'index']);
+    Route::get('municipio/{id}', [MunicipioController::class, 'index']);
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+

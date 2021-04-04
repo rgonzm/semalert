@@ -5,13 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="row">
-                    @foreach($municipios as $municipio)
+                    @foreach($cruces as $cruce)
                         <div
                             class="card col-5 mr-2"
-                            @click="irMunicipio({{$municipio->id}})"
+                            @click="irCruce({{$cruce->id}})"
                         >
                             <div class="card-body">
-                                {{$municipio->nombre}}
+                                <p>{{$cruce->interseccion}}</p>
+                                <span class="badge bg-danger">Apagado</span>
                             </div>
                         </div>
                     @endforeach
@@ -22,5 +23,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/home.app.js') }}"></script>
+    <script src="{{ asset('js/municipio.app.js') }}"></script>
 @endpush
